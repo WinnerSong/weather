@@ -3,8 +3,9 @@
  * Created by PhpStorm.
  * User: songzw
  * Date: 2018/9/15
- * Time: 15:19
+ * Time: 15:19.
  */
+
 namespace Winner\Weather\Tests;
 
 use GuzzleHttp\Client;
@@ -16,7 +17,6 @@ use Winner\Weather\Exceptions\InvalidArgumentException;
 use Winner\Weather\Weather;
 
 class WeatherTest extends TestCase
-
 {
     public function testGetWeatherWithInvalidType()
     {
@@ -50,7 +50,6 @@ class WeatherTest extends TestCase
             // 如果没有抛出异常，就会运行到这行，标记当前测试没成功
             $this->fail('Faild to assert getWeather throw exception with invalid argument.');
         }
-
     }
 
     public function testGetWeather()
@@ -84,7 +83,6 @@ class WeatherTest extends TestCase
         $w->allows()->getHttpClient()->andReturn($client);
 
         $this->assertSame('<hello>content</hello>', $w->getWeather('深圳', 'all', 'xml'));
-
     }
 
     public function testGetWeatherWithGuzzleRuntimeException()
