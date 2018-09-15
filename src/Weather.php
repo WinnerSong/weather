@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: songzw
  * Date: 2018/9/14
- * Time: 00:48
+ * Time: 00:48.
  */
 
 namespace Winner\Weather;
-
 
 use GuzzleHttp\Client;
 use Winner\Weather\Exceptions\HttpException;
@@ -16,6 +15,7 @@ use Winner\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key = null;
+
     protected $guzzleOptions = [];
 
     public function __construct(string $key)
@@ -25,7 +25,6 @@ class Weather
 
     public function getUsers()
     {
-
     }
 
     public function getHttpClient()
@@ -51,15 +50,15 @@ class Weather
             'key' => $this->key,
             'city' => $city,
             'output' => $format,
-            'extensions' => $type
+            'extensions' => $type,
         ]);
+
         try {
-
             $response = $this->getHttpClient()->get($url, ['query' => $query])->getBody()->getContents();
-            return $format === 'json' ? json_decode($response, true) : $response;
-        } catch (\Exception $e) {
-            throw new HttpException($e->getMessage(), $e->getCode(),$e);
-        }
 
+            return 'json' === $format ? json_decode($response, true) : $response;
+        } catch (\Exception $e) {
+            throw new HttpException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 }
