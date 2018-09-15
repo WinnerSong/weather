@@ -1,0 +1,19 @@
+{
+    "name": "winner\/weather",
+    "description": "compose package demo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "winner",
+            "email": "songzw1024@163.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Winner\\Weather\\": "src"
+        }
+    }
+}
